@@ -32,6 +32,15 @@ We wrote a C program for calculating the sum from 1 to n using a text editor,
 OUTPUT:
 
 ![output](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ab539ac0-0f18-4c67-9347-b741dd4dcdbd)
+
+Spike Simulation and Debug
+
+
+![spike](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/722b2d6c-ca87-4b38-a5e8-e3297fe0c290)
+
+
+
+
 dissrmble and assemble
 
 Spike Simulation and Debug
