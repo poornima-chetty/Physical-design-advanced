@@ -24,9 +24,9 @@ RISC-V is an open-source Instruction Set Architecture (ISA) designed to be simpl
 **RTL:** RTL serves as an abstraction level in the design process that represents the behavior of a digital circuit in terms of registers and the operations that transfer data between them.
 
 **Hardware:** Hardware refers to the physical components of a computer system or any electronic device. It encompasses all the tangible parts that make up a computing or electronic device and enable it to perform various tasks.
-**Labwork for RISCV Toolchain
+****Labwork for RISCV Toolchain
 C Program
-We wrote a C program for calculating the sum from 1 to n using a text editor,
+We wrote a C program for calculating the sum from 1 to n using a text editor,**
 **
 ![sumton1c](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/46b743b2-83f3-41da-bf59-c6f4519171a6)
 OUTPUT:
@@ -62,21 +62,46 @@ spike pk sum1ton.o is used to check whether the instructions produced are right 
 
 
 
-![spike](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e37af776-ae7d-414c-b008-ebeddc0e881e)
+![spike](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e37af776-ae7d![reg](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/a0d88b02-d12e-460c-8454-f6aa3dadcc79)
+-414c-b008-ebeddc0e881e)
 
 spike -d pk sum1ton.c is used for debugging
 
 
 ![spiked](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/12b8a1ca-9618-42ca-b257-4f306a8d0808)
+The contents of the registers can also be viewed.
+
+
+![reg](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/acf94fb5-4f1d-4f60-b660-a5fc802d73f7)
+
 ****
 Integer Number Representation**
 **Unsigned numbers**:An unsigned number contains just zero or positive values, whereas a signed number has both positive and negative numbers along with the value zero.
+**Signed numbers**:The term signed numbers refers to positive and negative numbers. If no sign is shown, the number automatically is considered positive.
+**LAB WORK
+ Write a C program that shows the maximum and minimum values of 64bit unsigned numbers.**
+
+
 code:
 ![unsignedcode](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/29fe00ab-5464-4533-9611-861071e3e3a1)
 
+ouput:
 
+
+![unsigned](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/4ad6224d-119a-487c-b44d-e54c86e7b10d)
+
+
+**write a C program that shows the maximum and minimum values of 64bit signed numbers.
 **
-the content of the registers can also be viewed
+code:
 
-![reg](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ce895c7e-d8de-44ba-aeee-a26af55c7e18)
+
+![signed](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/226b2baa-e677-4681-a60c-c76ad7d997dc)
+output:
+
+![signedo](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/87301e9f-34c8-481c-b74a-afcda8a2f11e)
+
+
+
+
 
