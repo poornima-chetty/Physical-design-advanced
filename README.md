@@ -32,8 +32,22 @@ We wrote a C program for calculating the sum from 1 to n using a text editor,
 OUTPUT:
 
 ![output](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ab539ac0-0f18-4c67-9347-b741dd4dcdbd)
+**RISCV GCC Compiler and Dissemble**
+Using the riscv gcc compiler, we compiled the C program.
 
-Spike Simulation and Debug
+riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
+
+Using ls -ltr sum1ton.c, we can check that the object file is created.
+
+To get the dissembled ALP code for the C program,
+
+riscv64-unknown-elf-objdump -d sum1ton.o | less .
+
+In order to view the main section, type /main.
+![main](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/a431b5fe-f4c9-41d3-8945-f3b1f9d4c430)
+
+
+***Spike Simulation and Debug****
 
 
 ![spike](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/722b2d6c-ca87-4b38-a5e8-e3297fe0c290)
