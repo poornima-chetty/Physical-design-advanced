@@ -43,12 +43,16 @@ Spike Simulation and Debug
 
 dissrmble and assemble
 
-Spike Simulation and Debug
+**Spike Simulation and Debug**
 spike pk sum1ton.o is used to check whether the instructions produced are right to give the correct output.
 
 
 
 ![spike](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e37af776-ae7d-414c-b008-ebeddc0e881e)
 
+spike -d pk sum1ton.c is used for debugging
+
+
+![spiked](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/12b8a1ca-9618-42ca-b257-4f306a8d0808)
 
 
