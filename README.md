@@ -55,4 +55,7 @@ spike -d pk sum1ton.c is used for debugging
 
 ![spiked](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/12b8a1ca-9618-42ca-b257-4f306a8d0808)
 
+the content of the registers can also be viewed
+
+![reg](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ce895c7e-d8de-44ba-aeee-a26af55c7e18)
 
