@@ -68,7 +68,14 @@ spike -d pk sum1ton.c is used for debugging
 
 
 ![spiked](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/12b8a1ca-9618-42ca-b257-4f306a8d0808)
+****
+Integer Number Representation**
+**Unsigned numbers**:An unsigned number contains just zero or positive values, whereas a signed number has both positive and negative numbers along with the value zero.
+code:
+![unsignedcode](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/29fe00ab-5464-4533-9611-861071e3e3a1)
 
+
+**
 the content of the registers can also be viewed
 
 ![reg](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ce895c7e-d8de-44ba-aeee-a26af55c7e18)
