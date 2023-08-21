@@ -1,7 +1,9 @@
 # Physical-design-advanced
 
 **INTRODUCTION TO RISC V BASIC KEYWORDS**
+
 **INSTRUCTION SET ARCHITECTURE:**
+
 **An Instruction Set Architecture (ISA)** is a set of instructions that a computer's central processing unit (CPU) can execute. It defines the interface between the hardware and software of a computer system, allowing software programs to communicate with and control the underlying hardware.
 
 **RISC V**
@@ -55,7 +57,7 @@ In order to view the main section, type /main.
 
 
 
-dissrmble and assemble
+
 
 **Spike Simulation and Debug**
 spike pk sum1ton.o is used to check whether the instructions produced are right to give the correct output.
@@ -76,16 +78,17 @@ The contents of the registers can also be viewed.
 
 ****
 Integer Number Representation**
+
 **Unsigned numbers**:An unsigned number contains just zero or positive values, whereas a signed number has both positive and negative numbers along with the value zero.
 **Signed numbers**:The term signed numbers refers to positive and negative numbers. If no sign is shown, the number automatically is considered positive.
 **LAB WORK
  Write a C program that shows the maximum and minimum values of 64bit unsigned numbers.**
 
 
-code:
+ code:
 ![unsignedcode](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/29fe00ab-5464-4533-9611-861071e3e3a1)
 
-ouput:
+output:
 
 
 ![unsigned](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/4ad6224d-119a-487c-b44d-e54c86e7b10d)
