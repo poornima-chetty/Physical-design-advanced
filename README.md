@@ -117,6 +117,87 @@ output:
 ![signedo](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/87301e9f-34c8-481c-b74a-afcda8a2f11e)
 
 
+**DAY 2
+Application Binary Interface**
+**Introduction to ABI**
+An Application Binary Interface (ABI) is a set of rules and conventions that define how binary code interfaces between different components of a computer system, such as software libraries, operating systems, and user applications. The ABI encompasses details about data types, calling conventions, memory layout, and system call interfaces, among other things. It plays a crucial role in ensuring that software components developed by different parties can interact seamlessly and run on the same hardware or software platform.
 
 
+
+![abi](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/cb9beb60-b18e-4659-ba70-5777b6089215)
+
+Memmory Allocation for Double Words
+64-bit number (or any multi-byte value) can be loaded into memory in little-endian or big-endian. It involves understanding the byte order and arranging the bytes accordingly
+
+Little-Endian: In little-endian representation, you store the least significant byte (LSB) at the lowest memory address and the most significant byte (MSB) at the highest memory address.
+Big-Endian: In big-endian representation, you store the most significant byte (MSB) at the lowest memory address and the least significant byte (LSB) at the highest memory address.
+
+
+
+
+**Load, Add and Store Instructions**
+Load, Add, and Store instructions are fundamental operations in computer architecture and assembly programming. They are often used to manipulate data within a computer's memory and registers.
+
+Load Instructions: Load instructions are used to transfer data from memory to registers. They allow you to fetch data from a specified memory address and place it into a register for further processing.
+
+
+**Example ld x6, 8(x5)**
+
+
+
+ld is the load double-word instruction.
+x6 is the destination register.
+8(x5) is the memory address pointed to by register x5 (base address + offset).
+Store Instructions: Store instructions are used to write data from registers into memory.They store values from registers into memory addresses
+
+
+**Example sd x8, 8(x9)**
+
+
+
+sd is the store double-word instruction.
+x8 is the source register.
+8(x9) is the memory address pointed to by register x9 (base address + offset).
+Add Instructions: Add instructions are used to perform addition operations on registers. They add the values of two source registers and store the result in a destination register.
+
+****Example add x9, x10, x11
+**
+**
+
+add is the add instruction.
+x9 is the destination register.
+x10 and x11 are the source registers.
+
+**REGISTERS AND THEIR ABI NAMES**
+The names of registers in an ABI (Application Binary Interface) can vary depending on the architecture and platform  working with. Different computer architectures have their own sets of registers with specific names and purposes
+![ABI](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/75914b41-9e34-4b39-b98d-89bdbf1d38d5)
+
+
+**Labwork using ABI Function Calls**
+
+![ASM](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/d9e02993-efa3-432e-95a7-6eaecb29deb9)
+When calling an assembly function from C code:
+
+WE need to follow the calling convention of your platform. This includes passing arguments either through registers or the stack, preserving registers as needed, and following other platform-specific rules.
+When using inline assembly, We need to specify input and output operands, which tell the compiler which registers or memory locations are used for inputs and where the output is stored.
+During execution:
+
+The assembly instructions we've provided are executed by the CPU just like any other machine code.
+The assembly code can interact with C variables and perform operations that might be challenging or impossible to express using only C code.
+**Review ASM Function Calls**
+
+**c program code**
+
+![asmcode](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b92bdc90-d484-4bf2-b1ea-ee2677242f9f)
+**assembly file**
+![assembly](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/2c796ce7-af38-4cf8-9ceb-401e330bfa90)
+
+**Simulate C Program using Function Call**
+
+riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o asm.o asm.c assemble.s
+this command creates an object file asm.o
+
+spike pk asm.o
+after compilation
+[ou](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/271ccd26-66c3-4bef-9506-9df3e2cb2e39)
 
