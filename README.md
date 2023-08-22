@@ -122,8 +122,8 @@ output:
 Application Binary Interface**
 **Introduction to ABI**
 An Application Binary Interface (ABI) is a set of rules and conventions that define how binary code interfaces between different components of a computer system, such as software libraries, operating systems, and user applications. The ABI encompasses details about data types, calling conventions, memory layout, and system call interfaces, among other things. It plays a crucial role in ensuring that software components developed by different parties can interact seamlessly and run on the same hardware or software platform.
-![new](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e02ad039-d1a9-44de-b5e0-05a75ca911ef)
 
+![new](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/0f6a596f-5b2b-4f0e-96c0-0b3191f4b81b)
 
 
 
