@@ -194,13 +194,14 @@ The assembly code can interact with C variables and perform operations that migh
 ![assembly](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/2c796ce7-af38-4cf8-9ceb-401e330bfa90)
 
 **Simulate C Program using Function Call**
+![ou](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3d755a64-6053-4a03-b396-aeac7d1f5d1a)
 
 riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o asm.o asm.c assemble.s
 this command creates an object file asm.o
 
 spike pk asm.o
 after compilation
-[ou](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/271ccd26-66c3-4bef-9506-9df3e2cb2e39)
+![ou](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3d755a64-6053-4a03-b396-aeac7d1f5d1a)
 
 
 
