@@ -118,13 +118,14 @@ output:
 
 
 **DAY 2
+
 Application Binary Interface**
 **Introduction to ABI**
 An Application Binary Interface (ABI) is a set of rules and conventions that define how binary code interfaces between different components of a computer system, such as software libraries, operating systems, and user applications. The ABI encompasses details about data types, calling conventions, memory layout, and system call interfaces, among other things. It plays a crucial role in ensuring that software components developed by different parties can interact seamlessly and run on the same hardware or software platform.
+![new](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e02ad039-d1a9-44de-b5e0-05a75ca911ef)
 
 
 
-![abi](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/cb9beb60-b18e-4659-ba70-5777b6089215)
 
 Memmory Allocation for Double Words
 64-bit number (or any multi-byte value) can be loaded into memory in little-endian or big-endian. It involves understanding the byte order and arranging the bytes accordingly
@@ -200,4 +201,6 @@ this command creates an object file asm.o
 spike pk asm.o
 after compilation
 [ou](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/271ccd26-66c3-4bef-9506-9df3e2cb2e39)
+
+
 
