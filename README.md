@@ -205,4 +205,177 @@ after compilation
 
 
 
+**Day-1-Introduction to Verilog RTL design and Synthesis
+Introduction to Verilog RTL design and Synthesis
+Introduction to Yosys synthesizer
+
+
+
+
+
+**
+
+A simulator is a design used to check the design
+**RTL DESIGN** is used to check for adherenvce to the spec by simulating the design
+iverilog is used in this cOurse.
+**IVERILOG**Icarus Verilog is an implementation of the Verilog hardware description language compiler that generates netlists in the desired format (EDIF).
+
+**TEST BENCH: **a code module that describes the stimulus to a logic design and checks whether the design's outputs match its specification.
+
+**HOW SIMULATOR WORKS!**
+SIMULATOR LOOKS FOR THE CHANGES ON THE INPUT SIGNALS.
+THE OUTPUT IS EVALUATED BASED ON THE INPUT.
+IF NO CHANGE IN THE INPUT , NO CHANGE IN THE OUTPUT AS WELL.
+**IVERILOG DESIGN FLOW**
+![IVERILOG](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/82574966-31a2-46d2-841f-d4e4a91c8f4b)
+
+**Labs using iVerilog and GTKwave**
+step 1:
+mkdir vsd
+step 2:
+ cd vsd
+ step 3:
+ git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
+Creates a folder called sky130RTLDesignAndSynthesisWorkshop in the vsd directory.
+
+[Screenshot from 2023-08-27 18-54-07](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/d945e733-4612-444b-b02e-e552e0f71d10)
+my_lib : contains all the library files
+
+lib : contains sky130 standard cell library used for our synthesis
+
+verilog_model : contains all the standard cell verilog modules of the standard cells contained in the .lib
+
+verilog_files : contains all the verilog source files and testbench files which are required for labs![kk](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/d25c7adb-c580-47f6-a738-3cd385dbb950)
+
+
+i**Verilog GTKwave Part-1**
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+
+we have loaded the source code along with the testbench code into the iverilog simulator
+
+iverilog good_mux.v tb_good_mux.v
+
+We can see that an output file a.out has been created.
+
+./a.out
+
+The output of the iverilog, a vcd file, is created which is loaded into the simualtor gtkwave.
+
+gtkwave tb_good_mux.vcd
+
+[kk](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/d25c7adb-c580-47f6-a738-3cd385dbb950)
+
+![ooo](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/47f1af36-b526-4193-8965-1fcde9126c7a)
+**iVerilog GTKwave Part-2**
+In order to view the contents in the files,
+
+gvim tb_good_mux.v -o good_mux.v
+
+t**b_good_mux.v **
+module good_mux (input i0 , input i1 , input sel , output reg y);
+always @ (*)
+begin
+	if(sel)
+		y <= i1;
+	else 
+		y <= i0;
+end
+endmodule
+
+tb_good_mux.v
+timescale 1ns / 1ps
+module tb_good_mux;
+	// Inputs
+	reg i0,i1,sel;
+	// Outputs
+	wire y;
+
+        // Instantiate the Unit Under Test (UUT)
+	good_mux uut (
+		.sel(sel),
+		.i0(i0),
+		.i1(i1),
+		.y(y)
+	);
+
+	initial begin
+	$dumpfile("tb_good_mux.vcd");
+	$dumpvars(0,tb_good_mux);
+	// Initialize Inputs
+	sel = 0;
+	i0 = 0;
+	i1 = 0;
+	#300 $finish;
+	end
+
+always #75 sel = ~sel;
+always #10 i0 = ~i0;
+always #55 i1 = ~i1;
+endmodule
+
+**
+Introduction to Yosys and Logic Synthesis
+**
+
+Introduction to Yosys
+Synthesizer
+
+It is a tool used for converting RTL design code to netlist.
+Here, the synthesizer used is Yosys.
+Yosys
+
+It is an open-source framework for Verilog RTL synthesis and formal verification.
+Yosys provides a collection of tools and algorithms that enable designers to transform high-level RTL (Register Transfer Level) descriptions of digital circuits into optimized gate-level representations suitable for physical implementation on hardware.
+![SETU P](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ff505c0c-acec-4144-a4f9-c048d33ed27e)
+
+Netlist along with the tesbench is fed to the iverilog simulator.
+The vcd file generated is fed to the gtkwave simulator.
+The output on the simulator must be same as the output observed during RTL simulation.
+Same RTL testbench can be used as the primary inputs and primary outputs remain same between the RTL design and synthesised netlist.
+
+![WWW](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b8f2a3ac-db29-428d-bd2c-a4ad941b191b)
+**Introduction to Logic Synthesis
+**
+** LOGIC SYNTHESIS ;**Synthesis is the process of converting a high-level description of design (Verilog/VHDL) into an optimized gate-level representation. Logic synthesis uses a standard cell library which have simple cells, such as basic logic gates like AND, OR, and NOR, or macro cells, such as adder, muxes, memory, and flip-flops.
+
+.LIB
+ Once your RTL design is complete, you use a synthesis tool (like Yosys) to convert your RTL into a gate-level netlist using the standard cells from the .lib file. The .lib file contains information about the delay, power, and other characteristics of each standard cell.
+ 
+ **Why different flavors of gate?**
+
+In order to make a circuit faster, the clock frequency should be high.
+For that, the time period of the clock should be as low as possible.
+
+In a sequential circuit, clock period depends on:
+Clock to Q of flip-flop A.
+Propagation delay of combinational circuit.
+Setup time of flip-flop B.
+
+**Fast Cells:**
+
+Fast cells, also known as "high-performance cells" or "critical-path cells," are designed to operate at higher clock frequencies. They are optimized for speed and are used in the critical paths of a design where timing is most critical.
+
+**Slow Cells:**
+
+Slow cells, also referred to as "low-power cells" or "non-critical-path cells," are designed for low power consumption. They prioritize energy efficiency over speed.
+
+**Selection of the Cells**
+
+We have to guide the Synthesizer to choose the flavour of cells that is optimum for implementation of logic circuit.
+More use of faster cells leads to bad circuit in terms of power and area and also hold time violations.
+More use of slower cells leads to sluggish circuits amd may not meet the performance needs.
+Hence the guidance is offered to the synthesiser in the form of constraints.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
