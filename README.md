@@ -245,19 +245,19 @@ lib : contains sky130 standard cell library used for our synthesis
 
 verilog_model : contains all the standard cell verilog modules of the standard cells contained in the .lib
 
-verilog_files : contains all the verilog source files and testbench files which are required for labs![kk](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/d25c7adb-c580-47f6-a738-3cd385dbb950)
-
-
+verilog_files : contains all the verilog source files and testbench files which are required for labs
 i**Verilog GTKwave Part-1**
-cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+ 1.cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 
 we have loaded the source code along with the testbench code into the iverilog simulator
 
-iverilog good_mux.v tb_good_mux.v
+2.iverilog good_mux.v tb_good_mux.v
 
 We can see that an output file a.out has been created.
 
-./a.out
+3../a.out
+![kk](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/d25c7adb-c580-47f6-a738-3cd385dbb950)
+
 
 The output of the iverilog, a vcd file, is created which is loaded into the simualtor gtkwave.
 
@@ -267,7 +267,7 @@ gtkwave tb_good_mux.vcd
 
 ![ooo](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/47f1af36-b526-4193-8965-1fcde9126c7a)
 **iVerilog GTKwave Part-2**
-In order to view the contents in the files,
+**In order to view the contents in the files,
 
 gvim tb_good_mux.v -o good_mux.v
 
@@ -312,13 +312,12 @@ always #75 sel = ~sel;
 always #10 i0 = ~i0;
 always #55 i1 = ~i1;
 endmodule
-
 **
-Introduction to Yosys and Logic Synthesis
 **
+**Introduction to Yosys and Logic Synthesis**
 
-Introduction to Yosys
-Synthesizer
+**Introduction to Yosys
+Synthesizer**
 
 It is a tool used for converting RTL design code to netlist.
 Here, the synthesizer used is Yosys.
@@ -328,17 +327,17 @@ It is an open-source framework for Verilog RTL synthesis and formal verification
 Yosys provides a collection of tools and algorithms that enable designers to transform high-level RTL (Register Transfer Level) descriptions of digital circuits into optimized gate-level representations suitable for physical implementation on hardware.
 ![SETU P](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ff505c0c-acec-4144-a4f9-c048d33ed27e)
 
-Netlist along with the tesbench is fed to the iverilog simulator.
+**Netlist along with the tesbench is fed to the iverilog simulator.**
 The vcd file generated is fed to the gtkwave simulator.
 The output on the simulator must be same as the output observed during RTL simulation.
 Same RTL testbench can be used as the primary inputs and primary outputs remain same between the RTL design and synthesised netlist.
 
 ![WWW](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b8f2a3ac-db29-428d-bd2c-a4ad941b191b)
-**Introduction to Logic Synthesis
+****Introduction to Logic Synthesis**
 **
-** LOGIC SYNTHESIS ;**Synthesis is the process of converting a high-level description of design (Verilog/VHDL) into an optimized gate-level representation. Logic synthesis uses a standard cell library which have simple cells, such as basic logic gates like AND, OR, and NOR, or macro cells, such as adder, muxes, memory, and flip-flops.
+**** **LOGIC SYNTHESIS***ynthesis is the process of converting a high-level description of design (Verilog/VHDL) into an optimized gate-level representation. Logic synthesis uses a standard cell library which have simple cells, such as basic logic gates like AND, OR, and NOR, or macro cells, such as adder, muxes, memory, and flip-flops.
 
-.LIB
+**.LIB**
  Once your RTL design is complete, you use a synthesis tool (like Yosys) to convert your RTL into a gate-level netlist using the standard cells from the .lib file. The .lib file contains information about the delay, power, and other characteristics of each standard cell.
  
  **Why different flavors of gate?**
@@ -365,6 +364,156 @@ We have to guide the Synthesizer to choose the flavour of cells that is optimum 
 More use of faster cells leads to bad circuit in terms of power and area and also hold time violations.
 More use of slower cells leads to sluggish circuits amd may not meet the performance needs.
 Hence the guidance is offered to the synthesiser in the form of constraints.
+
+
+**Labs using Yosys and Sky130 PDKs**
+To invoke yosys
+
+1.cd
+2.cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+3.Type yosys
+![YOSYCS](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/7854be46-c93e-462d-9474-febab4ab73ef)
+**To read the library**
+
+1. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+To read the design
+
+2.read_verilog good_mux.v
+
+To syntheis the module
+
+ synth -top good_mux
+ 
+![read](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/bf3371ed-16c4-4f9b-a894-6dd5709ce9ae)
+**To generate the netlist**
+
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+
+![netlist](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/c2b458e6-7f45-4be9-8d51-a3a41976ce76)
+
+
+It gives a report of what cells are used and the number of input and output signals.
+**To write the netlist**
+
+write_verilog good_mux_netlist.v
+
+!gvim good_mux_netlist.v
+
+**To view a simplified code**
+
+
+ write_verilog -noattr good_mux_netlist.v!
+
+!gvim good_mux_netlist.v
+
+![vimvim](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/c5d2ab30-f6ac-42a7-b3be-592a459615ac)
+
+![pic](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/2e1bcba0-40df-4a1d-bbd9-8243ccbf6980)
+
+****Day 4**
+**Introduction to Timing Dot Libs**
+
+**To view the contents in the .lib
+
+
+![png](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/64f198a9-5011-4255-bdcd-ccc076f52591)
+
+The first line in the file library ("sky130_fd_sc_hd__tt_025C_1v80") ** :
+tt : indicates variations due to process and here it indicates Typical Process.
+025C : indicates the variations due to temperatures where the silicon will be used.
+1v80 : indicates the variations due to the voltage levels where the silicon will be incorporated.
+It also displays the units of various parameters.
+
+
+
+![cell](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/9b19cc97-9839-427e-be43-e223f1b1e094)
+
+
+It gives the features of the cells
+
+To enable line number :se nu
+
+To view all the cells :g//
+
+To view any instance :/instance
+
+Since there are 5 inputs, for all the 32 possible combinations, it gives the delay, power and all the other parameters for each cell.
+![BATTERY](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/f64d485d-f0fe-41c0-8193-fda7814648ba)
+
+**Hierarchical vs Flat Synthesis
+**
+Hierarchical Synthesis Hierarchical synthesis is an approach in digital design and logic synthesis where complex designs are broken down into smaller, more manageable modules or sub-circuits, and each module is synthesized individually. These synthesized modules are then integrated back into the overall design hierarchy. This approach helps manage the complexity of large designs and allows designers to work on different parts of the design independently.
+The file we used in this lab is multiple_modules.v
+
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+gvim multiple_modules.v
+![POO](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/be53fbb0-448d-4a7e-8c09-cc4188c5a5a9)
+
+multiple_modules instantiates sub_module1 and sub_module2
+
+Launch yosys
+
+read the library file read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read the verilog file  read_verilog multiple_modules.v
+
+synth -top multiple_modules to set it as top module
+![loop](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/7b7d2964-ff47-41be-a01b-fdabbd85223c)
+
+![synth](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/0a4b3d86-818e-4dcf-a577-30864954fbfb)
+
+
+
+**Flattened Synthesis **Flattened synthesis is the opposite of hierarchical synthesis. Instead of maintaining the hierarchical structure of the design during synthesis, flattened synthesis combines all modules and sub-modules into a single, flat representation. This means that the entire design is synthesized as a single unit, without preserving the modular organization present in the original high-level description.
+
+Launch yosys
+read the library file read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read the verilog file  read_verilog multiple_modules.v
+synth -top multiple_modules to set it as top module
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+flatten to write out a flattened netlist
+
+write_verilog -noattr multiple_modules_flat.v
+!gvim multiple_modules_flat.v
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/a36f6f0c-ca2e-4354-b8c5-8d68c164670d)
+
+****Various Flop Coding Styles and Optimization**
+**Why do we need a Flop?
+**
+A flip-flop (often abbreviated as "flop") is a fundamental building block in digital circuit design.
+It's a type of sequential logic element that stores binary information (0 or 1) and can change its output based on clock signals and input values.
+In a combinational circuit, the output changes after the propagation delay of the circuit once inputs are changed.
+During the propagation of data, if there are different paths with different propagation delays, then a glitch might occur.
+There will be multiple glitches for multiple combinational circuits.
+Hence, we need flops to store the data from the combinational circuits.
+When a flop is used, the output of combinational circuit is stored in it and it is propagated only at the posedge or negedge of the clock so that the next combinational circuit gets a glitch free input thereby stabilising the output.
+We use control pins like set and reset to initialise the flops.
+They can be synchronous and asynchronous.
+**
+D Flip-Flop with Asynchronous Reset**
+
+When the reset is high, the output of the flip-flop is forced to 0, irrespective of the clock signal.
+Else, on the positive edge of the clock, the stored value is updated at the output.
+
+
+
+
+
+
+**
+
+
+
+
+
+
+
+
+
+
+
 
 
 ..
