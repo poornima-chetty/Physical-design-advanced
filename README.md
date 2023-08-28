@@ -479,9 +479,8 @@ write_verilog -noattr multiple_modules_flat.v
 !gvim multiple_modules_flat.v
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/a36f6f0c-ca2e-4354-b8c5-8d68c164670d)
 
-****Various Flop Coding Styles and Optimization**
-**Why do we need a Flop?
-**
+****Various Flop Coding Styles and Optimization
+Why do we need a Flop?
 A flip-flop (often abbreviated as "flop") is a fundamental building block in digital circuit design.
 It's a type of sequential logic element that stores binary information (0 or 1) and can change its output based on clock signals and input values.
 In a combinational circuit, the output changes after the propagation delay of the circuit once inputs are changed.
@@ -491,11 +490,76 @@ Hence, we need flops to store the data from the combinational circuits.
 When a flop is used, the output of combinational circuit is stored in it and it is propagated only at the posedge or negedge of the clock so that the next combinational circuit gets a glitch free input thereby stabilising the output.
 We use control pins like set and reset to initialise the flops.
 They can be synchronous and asynchronous.
-**
-D Flip-Flop with Asynchronous Reset**
+
+**D Flip-Flop with Asynchronous Reset**
 
 When the reset is high, the output of the flip-flop is forced to 0, irrespective of the clock signal.
 Else, on the positive edge of the clock, the stored value is updated at the output.
+gvim dff_asyncres_syncres.v
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/a219faad-eaea-48a3-9ac5-8e99b9c7486c)
+
+**D Flip_Flop with Asynchronous Set
+**
+When the set is high, the output of the flip-flop is forced to 1, irrespective of the clock signal.
+Else, on positive edge of the clock, the stored value is updated at the output.
+gvim dff_async_set.v
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/f79a717d-8283-422d-9721-fca3fe359fb3)
+
+D Flip-Flop with Synchronous Reset
+
+When the reset is high on the positive edge of the clock, the output of the flip-flop is forced to 0.
+
+Else, on the positive edge of the clock, the stored value is updated at the output.
+
+gvim dff_syncres.v
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3cc94521-04b9-494b-b63d-753996c9aaee)
+
+D Flip-Flop with Asynchronous Reset and Synchronous Reset
+
+When the asynchronous resest is high, the output is forced to 0.
+When the synchronous reset is high at the positive edge of the clock, the output is forced to 0.
+Else, on the positive edge of the clock, the stored value is updated at the output.
+Here, it is a combination of both synchronous and asynchronous reset DFF.
+gvim dff_asyncres_syncres.v
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b6d591ed-54c0-4157-bc7a-cab9d9629581)
+
+**Lab Flop Synthesis Simulations
+D Flip-Flop with Asynchronous Reset**
+
+Simulation
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+iverilog dff_asyncres.v tb_dff_asyncres.v
+./a.out
+gtkwave tb_dff_asyncres.vcd
+![flop](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/05633941-0db7-46eb-83b4-4f760a21b84a)
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/5f58331f-8d50-467e-9895-6457613c6457)
+
+
+**Synthesis**
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+
+yosys
+
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog dff_asyncres.v
+
+synth -top dff_asyncres
+
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+
+
+
+
+
+
+
+
+
 
 
 
