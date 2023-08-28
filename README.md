@@ -367,7 +367,7 @@ More use of slower cells leads to sluggish circuits amd may not meet the perform
 Hence the guidance is offered to the synthesiser in the form of constraints.
 
 
-
+..
 
 
 
