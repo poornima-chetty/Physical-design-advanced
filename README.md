@@ -536,7 +536,7 @@ gtkwave tb_dff_asyncres.vcd
 ![aync](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b27cca36-33cf-46ef-8363-cdec42df17b0)
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b2092cfa-882e-49ee-8a90-90d42a78a815)
 **Synthesis**
-cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+``` bash cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 
 yosys
 
@@ -550,7 +550,7 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-show
+show```
 
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/5e87419a-0ecd-4b9d-b94e-0aaeaaf8c6e9)
