@@ -525,75 +525,38 @@ gvim dff_asyncres_syncres.v
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b6d591ed-54c0-4157-bc7a-cab9d9629581)
 
 **Lab Flop Synthesis Simulations
-D Flip-Flop with Asynchronous Reset**
 
-**Simulation**
+**D Flip-Flop with Asynchronous Reset
+**
+Simulation
 cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 iverilog dff_asyncres.v tb_dff_asyncres.v
 ./a.out
 gtkwave tb_dff_asyncres.vcd
-![flop](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/05633941-0db7-46eb-83b4-4f760a21b84a)
-![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/5f58331f-8d50-467e-9895-6457613c6457)
-
-
+![aync](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b27cca36-33cf-46ef-8363-cdec42df17b0)
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b2092cfa-882e-49ee-8a90-90d42a78a815)
 **Synthesis**
 cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-read_verilog dff_asyncres.v
-
-synth -top dff_asyncres
-
-dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-
-show
-
-
-
-
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-
-read_verilog dff_asyncres.v
-
-synth -top dff_asyncres
-
-dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/702b7021-7480-4224-a980-2255d0bbd6c5)
-
-**D Flip Flop with Synchronous Reset**
-**Simulation**
-
-cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
-iverilog dff_syncres.v tb_dff_syncres.v
-./a.out
-gtkwave tb_dff_syncres.vcd
-![lap2](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/5917a46e-db7f-4dcf-8237-cf45d3cdfbda)
-![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/0d845637-bf20-4344-a1c5-cf470e111484)
-
-**Synthesis**
-```bash
-cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 yosys
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_verilog dff_async_set.v
-synth -top dff_async_set
-dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-show
-```
-![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/886782ce-1d66-4be9-88fe-f17834ed2cbd)
-**D Flip-Flop with Synchronous Reset
-**
-simu
 
-cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
-iverilog dff_syncres.v tb_dff_syncres.v
-./a.out
-gtkwave tb_dff_syncres.vcd
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog dff_asyncres.v
+
+synth -top dff_asyncres
+
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+show
+
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/5e87419a-0ecd-4b9d-b94e-0aaeaaf8c6e9)
+
+
+
 
 
 
