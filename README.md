@@ -527,7 +527,7 @@ gvim dff_asyncres_syncres.v
 **Lab Flop Synthesis Simulations
 D Flip-Flop with Asynchronous Reset**
 
-Simulation
+**Simulation**
 cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 iverilog dff_asyncres.v tb_dff_asyncres.v
 ./a.out
@@ -538,9 +538,6 @@ gtkwave tb_dff_asyncres.vcd
 
 **Synthesis**
 cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
-
-yosys
-
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 read_verilog dff_asyncres.v
@@ -551,6 +548,52 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
+show
+
+
+
+
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog dff_asyncres.v
+
+synth -top dff_asyncres
+
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/702b7021-7480-4224-a980-2255d0bbd6c5)
+
+**D Flip Flop with Synchronous Reset**
+**Simulation**
+
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+iverilog dff_syncres.v tb_dff_syncres.v
+./a.out
+gtkwave tb_dff_syncres.vcd
+![lap2](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/5917a46e-db7f-4dcf-8237-cf45d3cdfbda)
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/0d845637-bf20-4344-a1c5-cf470e111484)
+
+**Synthesis**
+```bash
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_async_set.v
+synth -top dff_async_set
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/886782ce-1d66-4be9-88fe-f17834ed2cbd)
+**D Flip-Flop with Synchronous Reset
+**
+simu
+
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+iverilog dff_syncres.v tb_dff_syncres.v
+./a.out
+gtkwave tb_dff_syncres.vcd
 
 
 
