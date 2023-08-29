@@ -466,9 +466,9 @@ synth -top multiple_modules to set it as top module
 
 
 
-**Flattened Synthesis **Flattened synthesis is the opposite of hierarchical synthesis. Instead of maintaining the hierarchical structure of the design during synthesis, flattened synthesis combines all modules and sub-modules into a single, flat representation. This means that the entire design is synthesized as a single unit, without preserving the modular organization present in the original high-level description.
+****Flattened Synthesis ****Flattened synthesis is the opposite of hierarchical synthesis. Instead of maintaining the hierarchical structure of the design during synthesis, flattened synthesis combines all modules and sub-modules into a single, flat representation. This means that the entire design is synthesized as a single unit, without preserving the modular organization present in the original high-level description.
 
-Launch yosys
+**Launch yosys**
 read the library file read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 read the verilog file  read_verilog multiple_modules.v
 synth -top multiple_modules to set it as top module
@@ -479,8 +479,8 @@ write_verilog -noattr multiple_modules_flat.v
 !gvim multiple_modules_flat.v
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/a36f6f0c-ca2e-4354-b8c5-8d68c164670d)
 
-****Various Flop Coding Styles and Optimization
-Why do we need a Flop?
+******Various Flop Coding Styles and Optimization
+Why do we need a Flop?**
 A flip-flop (often abbreviated as "flop") is a fundamental building block in digital circuit design.
 It's a type of sequential logic element that stores binary information (0 or 1) and can change its output based on clock signals and input values.
 In a combinational circuit, the output changes after the propagation delay of the circuit once inputs are changed.
@@ -497,7 +497,7 @@ When the reset is high, the output of the flip-flop is forced to 0, irrespective
 Else, on the positive edge of the clock, the stored value is updated at the output.
 gvim dff_asyncres_syncres.v
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/a219faad-eaea-48a3-9ac5-8e99b9c7486c)
-
+**
 **D Flip_Flop with Asynchronous Set
 **
 When the set is high, the output of the flip-flop is forced to 1, irrespective of the clock signal.
@@ -591,17 +591,52 @@ gtkwave tb_dff_syncres.vcd
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ea22557f-9b3e-497a-b102-397d691fe646)
 **Synthesis
 **
-```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 yosys
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 read_verilog dff_syncres.v
 synth -top dff_syncres
 dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-show```
-![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/45a65bd2-2fd4-4643-a7ab-82172fb9be81)
+show
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/a19e84bb-fe9c-416a-a1db-36a787c95572)
 
 **Interesting Optimisations**
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/6ef09884-5a12-45d0-a0ac-cab0490461d7)
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog mult_2.v
+synth -top mul2
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/32ae145e-7a53-46d3-814a-fc2d7c30d025)
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/466ed62d-64ae-4a8d-b1cd-c8169637042e)
+write_verilog -noattr mul2_netlist.v
+!gvim mul2_netlist.v
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/554405f0-2991-4cfa-a91b-febaac610771)
+gvim mult_8.v
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e5c10d7b-f6ac-4e06-8b8c-828d830119c9)
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
+
+read_verilog mult_8.v
+
+synth -top mult8
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ba0a0d9b-cbcb-412c-8a37-b1aff6a6cfad)
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e8ef3281-0672-474b-a933-42c7a71fb32b)
+write_verilog -noattr mult8_netlist.v
+!gvim mult8_netlist.v
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3202f463-31c4-4c52-97c1-1ac4030b49ca)
+
+
+
+
+
+
+
+
 
 
 
