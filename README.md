@@ -529,28 +529,28 @@ gvim dff_asyncres_syncres.v
 **D Flip-Flop with Asynchronous Reset
 **
 Simulation
-cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
-iverilog dff_asyncres.v tb_dff_asyncres.v
-./a.out
-gtkwave tb_dff_asyncres.vcd
+```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+```iverilog dff_asyncres.v tb_dff_asyncres.v```
+```./a.out```
+```gtkwave tb_dff_asyncres.vcd```
 ![aync](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b27cca36-33cf-46ef-8363-cdec42df17b0)
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b2092cfa-882e-49ee-8a90-90d42a78a815)
 **Synthesis**
-cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
 
 yosys
 
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
 
-read_verilog dff_asyncres.v
+```read_verilog dff_asyncres.v```
 
-synth -top dff_asyncres
+```synth -top dff_asyncres```
 
-dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
 
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
 
-show
+```show```
 
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/5e87419a-0ecd-4b9d-b94e-0aaeaaf8c6e9)
@@ -559,31 +559,31 @@ show
 **D Flip_Flop with Asynchronous Set
 **
 **Simulation**
-cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
-iverilog dff_async_set.v tb_dff_async_set.v
-./a.out
-gtkwave tb_dff_async_set.vcd
+```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+```iverilog dff_async_set.v tb_dff_async_set.v```
+```./a.out```
+```gtkwave tb_dff_async_set.vcd```
 ![rak](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/855a6aba-d516-4b37-942d-d185b66d66b6)
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3037d41d-e20f-4ba2-96a4-6c576864ef89)
 **Synthesis**
-cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
-yosys
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_verilog dff_async_set.v
-synth -top dff_async_set
-dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-show
+```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+```yosys```
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```read_verilog dff_async_set.v```
+```synth -top dff_async_set```
+```dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+``show```
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/26ae8907-a501-4bb5-aba9-894846eb4b26)
 **D Flip-Flop with Synchronous Reset
 **
 **Simulation
 **
-cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
-iverilog dff_syncres.v tb_dff_syncres.v
-./a.out
-gtkwave tb_dff_syncres.vcd
+```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+```iverilog dff_syncres.v tb_dff_syncres.v```
+```./a.out```
+```gtkwave tb_dff_syncres.vcd```
 
 
 ![poo](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/234c17d9-4386-4d9b-a178-92adb2dad991)
@@ -591,14 +591,14 @@ gtkwave tb_dff_syncres.vcd
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ea22557f-9b3e-497a-b102-397d691fe646)
 **Synthesis
 **
-cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
-yosys
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_verilog dff_syncres.v
-synth -top dff_syncres
-dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-show
+```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files```
+```yosys```
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```read_verilog dff_syncres.v```
+```synth -top dff_syncres```
+```dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib ```
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```show```
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/a19e84bb-fe9c-416a-a1db-36a787c95572)
 
@@ -607,11 +607,11 @@ show
 
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/6ef09884-5a12-45d0-a0ac-cab0490461d7)
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_verilog mult_2.v
-synth -top mul2
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib``` 
+```read_verilog mult_2.v```
+```synth -top mul2```
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/32ae145e-7a53-46d3-814a-fc2d7c30d025)
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
 show
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/466ed62d-64ae-4a8d-b1cd-c8169637042e)
 write_verilog -noattr mul2_netlist.v
@@ -619,19 +619,19 @@ write_verilog -noattr mul2_netlist.v
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/554405f0-2991-4cfa-a91b-febaac610771)
 gvim mult_8.v
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e5c10d7b-f6ac-4e06-8b8c-828d830119c9)
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib  ```
 
-read_verilog mult_8.v
+```read_verilog mult_8.v```
 
-synth -top mult8
+```synth -top mult8```
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ba0a0d9b-cbcb-412c-8a37-b1aff6a6cfad)
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-show
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```show```
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e8ef3281-0672-474b-a933-42c7a71fb32b)
 
 write_verilog -noattr mult8_netlist.v
-!gvim mult8_netlist.v
+```!gvim mult8_netlist.v```
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3202f463-31c4-4c52-97c1-1ac4030b49ca)
 
 
@@ -657,7 +657,7 @@ Retiming is an optimization technique used in digital design to improve the perf
 
 
 
-**Combinational Logic Optimisations**
+Combinational Logic Optimisations
 opt_check
 ```gvim opt_check.v```
 
@@ -690,15 +690,15 @@ gvim opt_check2.v
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e39c1449-0d84-428e-b79b-a700efc9f273)
 
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
 
-read_verilog opt_check2.v
+```read_verilog opt_check2.v```
+`
+```synth -top opt_check2```
 
-synth -top opt_check2
+```opt_clean -purge```
 
-opt_clean -purge
-
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
 
 show
 
@@ -716,7 +716,7 @@ opt_check3
 ```read_verilog opt_check3.v```
 ```synth -top opt_check3```
 ```opt_clean -purge```
-``abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
 show
 
 
@@ -729,16 +729,16 @@ show
 
 
 opt_check4
-gvim opt_check4.v
+```gvim opt_check4.v```
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/c6ca01dd-f2ff-4676-ab16-e8dff95a26ed)
 
-read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_verilog opt_check4.v
-synth -top opt_check4
-opt_clean -purge
-abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-show
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```read_verilog opt_check4.v```
+```synth -top opt_check4```
+```opt_clean -purge```
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```show```
 
 
 
@@ -758,8 +758,8 @@ multiple_module_opt
 ```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
 ```read_verilog multiple_module_opt.v```
 ```synth -top multiple_module_opt```
-```opt_clean -purge
-``abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```opt_clean -purge```
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
 show
 
 
@@ -767,6 +767,40 @@ show
 
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/88aa2bb0-3066-4e71-aa8b-196056418c09)
+
+Sequential Logic Optimisations
+dff_const1
+```gvim dff_const1.v```
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3538c3f7-c405-4a7e-88d0-9056e7e19196)
+
+Simulation
+
+```iverilog dff_const1.v tb_dff_const1.v```
+```/a.out```
+```gtkwave tb_dff_const1.vcd```
+![ff](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e941aac6-1698-4754-9b74-7603945adb1b)
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3ff51e4c-7a0d-4569-9c04-67e92b7f144f)
+
+Synthesis
+
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```read_verilog dff_const1.v```
+```synth -top dff_const1```
+```dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib ```
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```show```
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/2f5232ff-b4af-4ae7-b3c2-5a2c61c2272b)
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/737c912a-34b3-4e7b-8556-b6063af2681b)
+
+
+
+
+
+
+
+
 
 
 
