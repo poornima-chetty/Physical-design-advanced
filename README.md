@@ -556,6 +556,60 @@ show
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/5e87419a-0ecd-4b9d-b94e-0aaeaaf8c6e9)
 
 
+**D Flip_Flop with Asynchronous Set
+**
+**Simulation**
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+iverilog dff_async_set.v tb_dff_async_set.v
+./a.out
+gtkwave tb_dff_async_set.vcd
+![rak](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/855a6aba-d516-4b37-942d-d185b66d66b6)
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3037d41d-e20f-4ba2-96a4-6c576864ef89)
+**Synthesis**
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_async_set.v
+synth -top dff_async_set
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/26ae8907-a501-4bb5-aba9-894846eb4b26)
+**D Flip-Flop with Synchronous Reset
+**
+**Simulation
+**
+```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+iverilog dff_syncres.v tb_dff_syncres.v
+./a.out
+gtkwave tb_dff_syncres.vcd
+
+```
+![poo](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/234c17d9-4386-4d9b-a178-92adb2dad991)
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ea22557f-9b3e-497a-b102-397d691fe646)
+**Synthesis
+**
+```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_syncres.v
+synth -top dff_syncres
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show```
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/45a65bd2-2fd4-4643-a7ab-82172fb9be81)
+
+**Interesting Optimisations**
+
+
+
+
+
+
+
+
 
 
 
