@@ -580,7 +580,7 @@ show
 **
 **Simulation
 **
-```cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 iverilog dff_syncres.v tb_dff_syncres.v
 ./a.out
 gtkwave tb_dff_syncres.vcd
