@@ -536,7 +536,7 @@ gtkwave tb_dff_asyncres.vcd
 ![aync](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b27cca36-33cf-46ef-8363-cdec42df17b0)
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b2092cfa-882e-49ee-8a90-90d42a78a815)
 **Synthesis**
-``` bash cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
+cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 
 yosys
 
@@ -550,7 +550,7 @@ dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-show```
+show
 
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/5e87419a-0ecd-4b9d-b94e-0aaeaaf8c6e9)
@@ -585,7 +585,7 @@ iverilog dff_syncres.v tb_dff_syncres.v
 ./a.out
 gtkwave tb_dff_syncres.vcd
 
-```
+
 ![poo](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/234c17d9-4386-4d9b-a178-92adb2dad991)
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ea22557f-9b3e-497a-b102-397d691fe646)
@@ -603,6 +603,9 @@ show
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/a19e84bb-fe9c-416a-a1db-36a787c95572)
 
 **Interesting Optimisations**
+
+
+
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/6ef09884-5a12-45d0-a0ac-cab0490461d7)
 read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 read_verilog mult_2.v
@@ -626,6 +629,7 @@ synth -top mult8
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e8ef3281-0672-474b-a933-42c7a71fb32b)
+
 write_verilog -noattr mult8_netlist.v
 !gvim mult8_netlist.v
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3202f463-31c4-4c52-97c1-1ac4030b49ca)
