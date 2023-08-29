@@ -657,33 +657,116 @@ Retiming is an optimization technique used in digital design to improve the perf
 
 
 
-Combinational Logic Optimisations
+**Combinational Logic Optimisations**
 opt_check
-``gvim opt_check.v```
+```gvim opt_check.v```
 
 
-```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/9a76ad63-3014-47d3-a1f3-be9fe878da7c)
 
-read_verilog opt_check.v
 
-synth -top opt_check
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+
+```read_verilog opt_check.v```
+
+```synth -top opt_check```
+
+```opt_clean -purge```
+
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+
+show
+
+
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/11da5b62-9e08-463d-b540-4750c77bb390)
+
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/275b6622-d8d1-43cd-9f34-7ce09a57b86f)
+
+opt_check2
+gvim opt_check2.v
+
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e39c1449-0d84-428e-b79b-a700efc9f273)
+
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog opt_check2.v
+
+synth -top opt_check2
 
 opt_clean -purge
 
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-show```
+show
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/4d8918e6-4ef1-4e5f-b6f4-889a65fb5549)
+
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3119c0d5-34bf-4b56-a9a6-102e6b7b0438)
+opt_check3
+```gvim opt_check3.v```
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ee4a2c63-825b-484b-820e-1f85c9c64fd5)
+
+
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```read_verilog opt_check3.v```
+```synth -top opt_check3```
+```opt_clean -purge```
+``abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+show
+
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/74ba69ca-248c-46f9-8c8d-8bbe120c4ac5)
 
 
 
 
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/bb34d708-109c-44b6-befd-2b50fb6ae8ee)
+
+
+opt_check4
+gvim opt_check4.v
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/c6ca01dd-f2ff-4676-ab16-e8dff95a26ed)
+
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check4.v
+synth -top opt_check4
+opt_clean -purge
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
 
 
 
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/460fef59-7410-4572-a70b-53ee8197dd0a)
 
 
 
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/7841fb35-5955-479a-9abc-ac72ae6873c1)
 
+
+multiple_module_opt
+```gvim multiple_module_opt.v```
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ce65f147-9ce4-4e33-9ec9-41343369855a)
+
+
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```read_verilog multiple_module_opt.v```
+```synth -top multiple_module_opt```
+```opt_clean -purge
+``abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+show
+
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/525c86aa-2ed3-48d9-99ce-7b8eaa41e35c)
+
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/88aa2bb0-3066-4e71-aa8b-196056418c09)
 
 
 
