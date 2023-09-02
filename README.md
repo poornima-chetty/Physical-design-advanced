@@ -824,7 +824,8 @@ Example:
       Y = temp;
       Z = ~temp;
   end
- endmodule```
+ endmodule
+```
 
 Non-Blocking Statements
 
@@ -838,7 +839,8 @@ Example:
      else
          Q <= D;  // Non-blocking assignment to update Q with D on clock edge
  end
-endmodule```
+endmodule
+```
 **Caveats with Blocking Statements
 **
 Blocking statements in hardware description languages like Verilog have their uses, but there are certain caveats and considerations to be aware of when working with them. Here are some important caveats associated with using blocking statements:
@@ -860,9 +862,9 @@ ternary_operator_mux
 
 **Simulation**
 
-iverilog ternary_operator_mux.v tb_ternary_operator_mux.v
-./a.out
-gtkwave tb_ternary_operator_mux.vcd
+```iverilog ternary_operator_mux.v tb_ternary_operator_mux.v```
+```./a.out```
+```gtkwave tb_ternary_operator_mux.vcd```
 ![ter](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/bef73e42-c956-4597-a9e5-c7b1b1da907f)
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/153efd42-ceca-482d-8da5-b608920656f7)
 
@@ -923,9 +925,34 @@ gvim blocking_caveat.v
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/957f3ac0-f47c-401a-9e44-44c156e1fa63)
 Simualtion
 
-iverilog blocking_caveat.v tb_blocking_caveat.v
-./a.out
-gtkwave tb_blocking_caveat.vcd
+```iverilog blocking_caveat.v tb_blocking_caveat.v```
+```./a.out```
+```gtkwave tb_blocking_caveat.vcd```
+![looop](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/da577815-70f3-47f4-bf3b-790fafb76715)
+
+
+
+![kkkkkk](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/a0a70b9f-91cd-44bb-b368-8740277d7386)
+Synthesis
+
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```read_verilog blocking_caveat.v```
+```synth -top blocking_caveat```
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+show
+
+
+**GLS to Gate-Level Simulation**
+
+```iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v blocking_caveat_net.v tb_blocking_caveat.v```
+```./a.out```
+```gtkwave tb_blocking_caveat.vcd```
+
+
+
+
+
+
 
 
 
