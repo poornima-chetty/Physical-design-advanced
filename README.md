@@ -1,4 +1,4 @@
-![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/be65810b-9b90-4b4e-8119-0f4524a1b1d0)# Physical-design-advanced
+# Physical-design-advanced
 VLSI PHYSICAL DESIGN FOR ASIC                                                                            
 **INTRODUCTION TO RISC V BASIC KEYWORDS**
 
@@ -373,7 +373,7 @@ To invoke yosys
 2.cd vsd/sky130RTLDesignAndSynthesisWorkshop/verilog_files
 3.Type yosys
 ![YOSYCS](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/7854be46-c93e-462d-9474-febab4ab73ef)
-**To read the library**
+# To read the library
 
 1. read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
@@ -386,7 +386,7 @@ To syntheis the module
  synth -top good_mux
  
 ![read](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/bf3371ed-16c4-4f9b-a894-6dd5709ce9ae)
-**To generate the netlist**
+# To generate the netlis
 
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
@@ -395,7 +395,7 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 
 It gives a report of what cells are used and the number of input and output signals.
-**To write the netlist**
+# To write the netlist**
 
 write_verilog good_mux_netlist.v
 
@@ -442,8 +442,8 @@ To view any instance :/instance
 Since there are 5 inputs, for all the 32 possible combinations, it gives the delay, power and all the other parameters for each cell.
 ![BATTERY](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/f64d485d-f0fe-41c0-8193-fda7814648ba)
 
-**Hierarchical vs Flat Synthesis
-**
+# Hierarchical vs Flat Synthesis
+
 Hierarchical Synthesis Hierarchical synthesis is an approach in digital design and logic synthesis where complex designs are broken down into smaller, more manageable modules or sub-circuits, and each module is synthesized individually. These synthesized modules are then integrated back into the overall design hierarchy. This approach helps manage the complexity of large designs and allows designers to work on different parts of the design independently.
 The file we used in this lab is multiple_modules.v
 
@@ -479,8 +479,8 @@ write_verilog -noattr multiple_modules_flat.v
 !gvim multiple_modules_flat.v
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/a36f6f0c-ca2e-4354-b8c5-8d68c164670d)
 
-******Various Flop Coding Styles and Optimization
-Why do we need a Flop?**
+# Various Flop Coding Styles and Optimization
+# Why do we need a Flop?**
 A flip-flop (often abbreviated as "flop") is a fundamental building block in digital circuit design.
 It's a type of sequential logic element that stores binary information (0 or 1) and can change its output based on clock signals and input values.
 In a combinational circuit, the output changes after the propagation delay of the circuit once inputs are changed.
@@ -491,7 +491,7 @@ When a flop is used, the output of combinational circuit is stored in it and it 
 We use control pins like set and reset to initialise the flops.
 They can be synchronous and asynchronous.
 
-**D Flip-Flop with Asynchronous Reset**
+# D Flip-Flop with Asynchronous Reset
 
 When the reset is high, the output of the flip-flop is forced to 0, irrespective of the clock signal.
 Else, on the positive edge of the clock, the stored value is updated at the output.
@@ -634,10 +634,10 @@ write_verilog -noattr mult8_netlist.v
 ```!gvim mult8_netlist.v```
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3202f463-31c4-4c52-97c1-1ac4030b49ca)
 
-**
-Day 5**
-Introduction to Optimisations
-Combinational Optimisation
+
+# Day 5**
+# Introduction to Optimisations
+# Combinational Optimisation
 Combinational logic refers to logic circuits where the outputs depend only on the current inputs and not on any previous states.
 Combinational optimization is a field of study in computer science and operations research that focuses on finding the best possible solution from a finite set of options for problems that involve discrete variables and have no inherent notion of time.
 Optimising the combinational logic circuit is squeezing the logic to get the most optimized digital design so that the circuit finally is area and power efficient.
@@ -657,8 +657,8 @@ Retiming is an optimization technique used in digital design to improve the perf
 
 
 
-Combinational Logic Optimisations
-opt_check
+# Combinational Logic Optimisations
+ # opt_check
 ```gvim opt_check.v```
 
 
@@ -684,7 +684,7 @@ show
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/275b6622-d8d1-43cd-9f34-7ce09a57b86f)
 
-opt_check2
+# opt_check2
 gvim opt_check2.v
 
 
@@ -706,7 +706,7 @@ show
 
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3119c0d5-34bf-4b56-a9a6-102e6b7b0438)
-opt_check3
+# opt_check3
 ```gvim opt_check3.v```
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ee4a2c63-825b-484b-820e-1f85c9c64fd5)
@@ -728,7 +728,7 @@ show
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/bb34d708-109c-44b6-befd-2b50fb6ae8ee)
 
 
-opt_check4
+# opt_check4
 ```gvim opt_check4.v```
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/c6ca01dd-f2ff-4676-ab16-e8dff95a26ed)
@@ -768,12 +768,12 @@ show
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/88aa2bb0-3066-4e71-aa8b-196056418c09)
 
-Sequential Logic Optimisations
-dff_const1
+# Sequential Logic Optimisations
+# dff_const1
 ```gvim dff_const1.v```
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3538c3f7-c405-4a7e-88d0-9056e7e19196)
 
-Simulation
+# Simulation
 
 ```iverilog dff_const1.v tb_dff_const1.v```
 ```/a.out```
@@ -782,7 +782,7 @@ Simulation
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3ff51e4c-7a0d-4569-9c04-67e92b7f144f)
 
-Synthesis
+# Synthesis
 
 ```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
 ```read_verilog dff_const1.v```
@@ -794,17 +794,17 @@ Synthesis
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/737c912a-34b3-4e7b-8556-b6063af2681b)
 
-****Day 6**
-GLS Synthesis-Simulation Mismatch and Blocking Non-blocking Statements
-GLS Concepts And Flow Using Iverilog
-Gate Level Simualtion**
+# Day 6
+# GLS Synthesis-Simulation Mismatch and Blocking Non-blocking Statements
+# GLS Concepts And Flow Using Iverilog
+Gate Level Simualtion
 Gate-level simulation is a technique used in digital design and verification to validate the functionality of a digital circuit at the gate-level implementation.
 It involves simulating the circuit using the actual logic gates and flip-flops that make up the design, as opposed to higher-level abstractions like RTL (Register Transfer Level) descriptions.
 This type of simulation is typically performed after the logic synthesis process, where a high-level description of the design is transformed into a netlist of gates and flip-flops.
 We perform this to verify logical correctness of the design after synthesizing it. Also ensuring the timing of the design is met.
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3bdff141-8061-4a09-acd2-be529ae099e5)
-Synthesis-Simulation Mismatch
+# Synthesis-Simulation Mismatch
 
 A synthesis-simulation mismatch refers to a situation in digital design where the behavior of a circuit, as observed during simulation, doesn't match the expected or desired behavior of the circuit after it has been synthesized.
 This discrepancy can occur due to various reasons, such as timing issues, optimization conflicts, and differences in modeling between the simulation and synthesis tools.
@@ -827,7 +827,7 @@ Example:
  endmodule
 ```
 
-Non-Blocking Statements
+# Non-Blocking Statements
 
 Non-blocking assignments are used to model concurrent signal updates, where all assignments are evaluated simultaneously and then scheduled to be updated at the end of the time step.
 Example:
@@ -841,18 +841,18 @@ Example:
  end
 endmodule
 ```
-**Caveats with Blocking Statements
-**
+# Caveats with Blocking Statements
+
 Blocking statements in hardware description languages like Verilog have their uses, but there are certain caveats and considerations to be aware of when working with them. Here are some important caveats associated with using blocking statements:
 Procedural Execution: Blocking statements are executed sequentially in the order they appear within a procedural block (such as an always block). This can lead to unexpected behavior if the order of execution matters and is not well understood.
 **Lack of Parallelism ** Blocking statements do not accurately represent the parallel nature of hardware. In hardware, multiple signals can update concurrently, but blocking statements model sequential behavior. As a result, using blocking statements for modeling complex concurrent logic can lead to incorrect simulations.
 **Race Conditions **When multiple blocking assignments operate on the same signal within the same procedural block, a race condition can occur. The outcome of such assignments depends on their order of execution, which might lead to inconsistent or unpredictable behavior.
-**Limited Representation of Hardware** Hardware systems are inherently concurrent and parallel, but blocking statements do not capture this aspect effectively. Using blocking assignments to model complex combinational or sequential logic can lead to models that are difficult to understand, maintain, and debug.
+# Limited Representation of HardwareHardware systems are inherently concurrent and parallel, but blocking statements do not capture this aspect effectively. Using blocking assignments to model complex combinational or sequential logic can lead to models that are difficult to understand, maintain, and debug.
 Combinatorial Loops: Incorrect use of blocking statements can lead to unintentional combinational logic loops, which can result in simulation or synthesis errors.
 Debugging Challenges: Debugging code with many blocking assignments can be challenging, especially when trying to track down timing-related issues.
-**Not Suitable for Flip-Flops B**locking assignments are not suitable for modeling flip-flop behavior. Non-blocking assignments (<=) are generally preferred for modeling flip-flop updates to ensure accurate representation of concurrent behavior.
+# Not Suitable for Flip-Flops B**locking assignments are not suitable for modeling flip-flop behavior. Non-blocking assignments (<=) are generally preferred for modeling flip-flop updates to ensure accurate representation of concurrent behavior.
 **Sequential Logic Misrepresentation ** Using blocking assignments to model sequential logic might not capture the intended behavior accurately. Sequential elements like registers and flip-flops are better represented using non-blocking assignments.
-**Synthesis Implications ** The behavior of blocking assignments might not translate well during synthesis, leading to potential mismatches between simulation and synthesis results.
+# Synthesis Implications  The behavior of blocking assignments might not translate well during synthesis, leading to potential mismatches between simulation and synthesis results.
 
 Labs on GLS and Synthesis-Simulation Mismatch
 ternary_operator_mux
