@@ -940,13 +940,21 @@ Synthesis
 ```synth -top blocking_caveat```
 ```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
 show
+![lisa](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/e284d3d0-3540-4923-b5c6-583efc597169)
 
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/857f72b8-9c9e-421f-8460-fb1b2ee6db99)
 
 **GLS to Gate-Level Simulation**
 
 ```iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v blocking_caveat_net.v tb_blocking_caveat.v```
 ```./a.out```
-```gtkwave tb_blocking_caveat.vcd```
+```gtkwave tb_blocking_caveat.vcd``
+![poornima](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/7dcc48c4-909b-4b52-886a-50ccd55cbf99)
+
+
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/cdaf9ecc-e360-45f7-821e-26a5e94179d6)
+`
 
 
 
