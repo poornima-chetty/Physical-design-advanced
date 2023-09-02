@@ -1,4 +1,4 @@
-# Physical-design-advanced
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/be65810b-9b90-4b4e-8119-0f4524a1b1d0)# Physical-design-advanced
 VLSI PHYSICAL DESIGN FOR ASIC                                                                            
 **INTRODUCTION TO RISC V BASIC KEYWORDS**
 
@@ -634,8 +634,8 @@ write_verilog -noattr mult8_netlist.v
 ```!gvim mult8_netlist.v```
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3202f463-31c4-4c52-97c1-1ac4030b49ca)
 
-
-Day 5
+**
+Day 5**
 Introduction to Optimisations
 Combinational Optimisation
 Combinational logic refers to logic circuits where the outputs depend only on the current inputs and not on any previous states.
@@ -793,6 +793,165 @@ Synthesis
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/2f5232ff-b4af-4ae7-b3c2-5a2c61c2272b)
 
 ![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/737c912a-34b3-4e7b-8556-b6063af2681b)
+
+****Day 6**
+GLS Synthesis-Simulation Mismatch and Blocking Non-blocking Statements
+GLS Concepts And Flow Using Iverilog
+Gate Level Simualtion**
+Gate-level simulation is a technique used in digital design and verification to validate the functionality of a digital circuit at the gate-level implementation.
+It involves simulating the circuit using the actual logic gates and flip-flops that make up the design, as opposed to higher-level abstractions like RTL (Register Transfer Level) descriptions.
+This type of simulation is typically performed after the logic synthesis process, where a high-level description of the design is transformed into a netlist of gates and flip-flops.
+We perform this to verify logical correctness of the design after synthesizing it. Also ensuring the timing of the design is met.
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/3bdff141-8061-4a09-acd2-be529ae099e5)
+Synthesis-Simulation Mismatch
+
+A synthesis-simulation mismatch refers to a situation in digital design where the behavior of a circuit, as observed during simulation, doesn't match the expected or desired behavior of the circuit after it has been synthesized.
+This discrepancy can occur due to various reasons, such as timing issues, optimization conflicts, and differences in modeling between the simulation and synthesis tools.
+This mismatch is a critical concern in digital design because it indicates that the actual hardware implementation might not perform as expected, potentially leading to functional or timing failures in the fabricated chip.
+Blocking Statements
+
+Blocking statements are executed sequentially in the order they appear in the code and have an immediate effect on signal assignments.
+Example:
+``` module BlockingExample(input A, input B, input C, output Y, output Z);
+  wire temp;
+
+  // Blocking assignment
+  assign temp = A & B;
+
+  always @(posedge C) begin
+      // Blocking assignment
+      Y = temp;
+      Z = ~temp;
+  end
+ endmodule```
+
+Non-Blocking Statements
+
+Non-blocking assignments are used to model concurrent signal updates, where all assignments are evaluated simultaneously and then scheduled to be updated at the end of the time step.
+Example:
+ ```module NonBlockingExample(input clock, input D, input reset, output reg Q);
+
+ always @(posedge clock or posedge reset) begin
+     if (reset)
+         Q <= 0;  // Reset the flip-flop
+     else
+         Q <= D;  // Non-blocking assignment to update Q with D on clock edge
+ end
+endmodule```
+**Caveats with Blocking Statements
+**
+Blocking statements in hardware description languages like Verilog have their uses, but there are certain caveats and considerations to be aware of when working with them. Here are some important caveats associated with using blocking statements:
+Procedural Execution: Blocking statements are executed sequentially in the order they appear within a procedural block (such as an always block). This can lead to unexpected behavior if the order of execution matters and is not well understood.
+**Lack of Parallelism ** Blocking statements do not accurately represent the parallel nature of hardware. In hardware, multiple signals can update concurrently, but blocking statements model sequential behavior. As a result, using blocking statements for modeling complex concurrent logic can lead to incorrect simulations.
+**Race Conditions **When multiple blocking assignments operate on the same signal within the same procedural block, a race condition can occur. The outcome of such assignments depends on their order of execution, which might lead to inconsistent or unpredictable behavior.
+**Limited Representation of Hardware** Hardware systems are inherently concurrent and parallel, but blocking statements do not capture this aspect effectively. Using blocking assignments to model complex combinational or sequential logic can lead to models that are difficult to understand, maintain, and debug.
+Combinatorial Loops: Incorrect use of blocking statements can lead to unintentional combinational logic loops, which can result in simulation or synthesis errors.
+Debugging Challenges: Debugging code with many blocking assignments can be challenging, especially when trying to track down timing-related issues.
+**Not Suitable for Flip-Flops B**locking assignments are not suitable for modeling flip-flop behavior. Non-blocking assignments (<=) are generally preferred for modeling flip-flop updates to ensure accurate representation of concurrent behavior.
+**Sequential Logic Misrepresentation ** Using blocking assignments to model sequential logic might not capture the intended behavior accurately. Sequential elements like registers and flip-flops are better represented using non-blocking assignments.
+**Synthesis Implications ** The behavior of blocking assignments might not translate well during synthesis, leading to potential mismatches between simulation and synthesis results.
+
+Labs on GLS and Synthesis-Simulation Mismatch
+ternary_operator_mux
+```gvim teranry_operator_mux.v```
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/c6b8bbe5-db73-4dd2-947f-f7092150a71a)
+
+**Simulation**
+
+iverilog ternary_operator_mux.v tb_ternary_operator_mux.v
+./a.out
+gtkwave tb_ternary_operator_mux.vcd
+![ter](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/bef73e42-c956-4597-a9e5-c7b1b1da907f)
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/153efd42-ceca-482d-8da5-b608920656f7)
+
+**Synthesis**
+
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```read_verilog ternary_operator_mux.v```
+```synth -top ternary_operator_mux```
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+show
+
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/a793c123-2a9c-4a8b-909b-b1254bec55ad)
+
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/edd4dc82-c3c5-4bd6-b7d8-c89ae64050ca)
+GLS to Gate-Level Simulation
+
+```iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ternary_operator_mux.v```
+```./a.out```
+```gtkwave tb_bad_mux.vcd```
+![llll](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/1875f456-81b4-4f52-8905-940de6fdde8c)
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/2b786fb9-1cb1-4628-9e46-769676f71b92)
+bad_mux
+```gvim bad_mux.v```
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/77c6aeb8-3a02-458d-8d82-adfa370fb2d8)
+**Simualtion![oooo](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b0393abf-4e5a-4151-b540-3c31d8ed7242)
+
+**
+```iverilog bad_mux.v tb_bad_mux.v```
+```/a.out```
+```gtkwave tb_bad_mux.vcd```
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/77c6aeb8-3a02-458d-8d82-adfa370fb2d8)
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/ff806520-0968-4b78-a8c3-5b64ef8cd748)
+**Synthesis**
+
+```read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+```read_verilog bad_mux.v```
+```synth -top bad_mux```
+```abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib```
+show
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/61c960a1-73d8-4129-924e-5b91540681ed)
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/2be50bd8-a518-4d13-b134-27fa7bf0ee44)
+**GLS to Gate-Level Simulation**
+
+```iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v```
+```./a.out```
+```gtkwave tb_bad_mux.vcd```
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/b96e4350-ea23-44f6-9cb0-f02859f25817)
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/cac22796-ac8c-4db3-980b-1f8740756da6)
+**Labs on Synth-Sim Mismatch for Blocking Statement**
+blocking_caveat
+gvim blocking_caveat.v
+
+![image](https://github.com/poornima-chetty/Physical-design-advanced/assets/142583396/957f3ac0-f47c-401a-9e44-44c156e1fa63)
+Simualtion
+
+iverilog blocking_caveat.v tb_blocking_caveat.v
+./a.out
+gtkwave tb_blocking_caveat.vcd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
