@@ -847,10 +847,13 @@ Blocking statements in hardware description languages like Verilog have their us
 Procedural Execution: Blocking statements are executed sequentially in the order they appear within a procedural block (such as an always block). This can lead to unexpected behavior if the order of execution matters and is not well understood.
 **Lack of Parallelism ** Blocking statements do not accurately represent the parallel nature of hardware. In hardware, multiple signals can update concurrently, but blocking statements model sequential behavior. As a result, using blocking statements for modeling complex concurrent logic can lead to incorrect simulations.
 **Race Conditions **When multiple blocking assignments operate on the same signal within the same procedural block, a race condition can occur. The outcome of such assignments depends on their order of execution, which might lead to inconsistent or unpredictable behavior.
-# Limited Representation of HardwareHardware systems are inherently concurrent and parallel, but blocking statements do not capture this aspect effectively. Using blocking assignments to model complex combinational or sequential logic can lead to models that are difficult to understand, maintain, and debug.
-Combinatorial Loops: Incorrect use of blocking statements can lead to unintentional combinational logic loops, which can result in simulation or synthesis errors.
-Debugging Challenges: Debugging code with many blocking assignments can be challenging, especially when trying to track down timing-related issues.
-# Not Suitable for Flip-Flops B**locking assignments are not suitable for modeling flip-flop behavior. Non-blocking assignments (<=) are generally preferred for modeling flip-flop updates to ensure accurate representation of concurrent behavior.
+ # Limited Representation of Hardware 
+ Hardware systems are inherently concurrent and parallel, but blocking statements do not capture this aspect effectively. Using blocking assignments to model complex combinational or sequential logic can lead to models that are difficult to understand, maintain, and debug.
+# Combinatorial Loops:
+Incorrect use of blocking statements can lead to unintentional combinational logic loops, which can result in simulation or synthesis errors.
+# Debugging Challenges: 
+Debugging code with many blocking assignments can be challenging, especially when trying to track down timing-related issues.
+Not Suitable for Flip-Flops Blocking assignments are not suitable for modeling flip-flop behavior. Non-blocking assignments (<=) are generally preferred for modeling flip-flop updates to ensure accurate representation of concurrent behavior.
 **Sequential Logic Misrepresentation ** Using blocking assignments to model sequential logic might not capture the intended behavior accurately. Sequential elements like registers and flip-flops are better represented using non-blocking assignments.
 # Synthesis Implications  The behavior of blocking assignments might not translate well during synthesis, leading to potential mismatches between simulation and synthesis results.
 
